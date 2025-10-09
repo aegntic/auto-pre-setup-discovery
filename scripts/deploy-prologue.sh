@@ -5,8 +5,13 @@
 
 set -e
 
-echo "🎭 Prologue Complete Deployment Script"
-echo "====================================="
+echo " _____ _   _ _   _    _    _   _  ____ _____ ____"
+echo "|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\"
+echo "  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |"
+echo "  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |"
+echo "  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/"
+echo "           COMPLETE DEPLOYMENT SCRIPT"
+echo "========================================"
 
 # Colors for output
 RED='\033[0;31m'
@@ -173,8 +178,8 @@ echo "• View GitHub Pages: gh repo view --web"
 echo "• Monitor deployment: gh run list --repo aegntic/prologue"
 
 echo ""
-print_success "🎉 Prologue deployment completed successfully!"
-echo "🎭 Your creative journey begins now!"
+print_success "[OK] Prologue deployment completed successfully!"
+echo "[INFO] Your creative journey begins now!"
 
 # Optional: Open the site in browser
 if command -v xdg-open &> /dev/null; then

@@ -160,7 +160,7 @@ async function getCurrentDnsRecords() {
 async function deleteDnsRecord(recordId) {
     try {
         const response = await makePorkbunRequest(`/dns/delete/${DOMAIN}/${recordId}`, 'POST');
-        console.log(`✅ Deleted record ${recordId}`);
+        console.log(`[OK] Deleted record ${recordId}`);
         return response;
     } catch (error) {
         console.error(`Failed to delete record ${recordId}:`, error.message);
@@ -174,7 +174,7 @@ async function deleteDnsRecord(recordId) {
 async function createDnsRecord(record) {
     try {
         const response = await makePorkbunRequest(`/dns/create/${DOMAIN}`, 'POST', record);
-        console.log(`✅ Created ${record.type} record: ${record.name} -> ${record.content}`);
+        console.log(`[OK] Created ${record.type} record: ${record.name} -> ${record.content}`);
         return response;
     } catch (error) {
         console.error(`Failed to create ${record.type} record:`, error.message);
@@ -197,8 +197,8 @@ async function configureNameservers() {
         const response = await makePorkbunRequest(`/domain/updateNameservers/${DOMAIN}`, 'POST', {
             nameservers: nameservers
         });
-        console.log('✅ Nameservers configured successfully');
-        console.log('📋 Nameservers:', nameservers.join(', '));
+        console.log('[OK] Nameservers configured successfully');
+        console.log('[INFO] Nameservers:', nameservers.join(', '));
         return response;
     } catch (error) {
         console.error('Failed to configure nameservers:', error.message);
@@ -210,8 +210,13 @@ async function configureNameservers() {
  * Main configuration function
  */
 async function configureDns() {
-    console.log('🎭 Prologue DNS Configuration for logue.pro');
-    console.log('==========================================');
+    console.log(' _____ _   _ _   _    _    _   _  ____ _____ ____');
+    console.log('|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\');
+    console.log('  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |');
+    console.log('  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |');
+    console.log('  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/');
+    console.log('           DNS CONFIGURATION FOR LOGUE.PRO');
+    console.log('=================================================');
 
     // Check API credentials
     if (PORKBUN_API_KEY === 'your_porkbun_api_key' || PORKBUN_SECRET_KEY === 'your_porkbun_secret_key') {
@@ -251,24 +256,24 @@ async function configureDns() {
         console.log('');
 
         // Step 5: Verify configuration
-        console.log('✅ DNS configuration completed successfully!');
+        console.log('[OK] DNS configuration completed successfully!');
         console.log('');
-        console.log('📊 Summary:');
-        console.log(`   • Domain: ${DOMAIN}`);
-        console.log(`   • Root domain: Points to GitHub Pages (${GITHUB_PAGES_IPS.length} A records)`);
-        console.log('   • www subdomain: CNAME to aegntic.github.io');
-        console.log('   • Email: MX records configured via forwardemail.net');
-        console.log('   • Security: SPF and DMARC records configured');
+        console.log('[INFO] Summary:');
+        console.log(`   - Domain: ${DOMAIN}`);
+        console.log(`   - Root domain: Points to GitHub Pages (${GITHUB_PAGES_IPS.length} A records)`);
+        console.log('   - www subdomain: CNAME to aegntic.github.io');
+        console.log('   - Email: MX records configured via forwardemail.net');
+        console.log('   - Security: SPF and DMARC records configured');
         console.log('');
-        console.log('⏰ DNS changes may take up to 24 hours to propagate globally.');
-        console.log('🔍 You can check propagation at: https://dnschecker.org');
+        console.log('[NOTE] DNS changes may take up to 24 hours to propagate globally.');
+        console.log('[INFO] You can check propagation at: https://dnschecker.org');
         console.log('');
-        console.log('🌐 Once propagated, your site will be available at:');
-        console.log('   • https://logue.pro');
-        console.log('   • https://www.logue.pro');
+        console.log('[SITE] Once propagated, your site will be available at:');
+        console.log('   - https://logue.pro');
+        console.log('   - https://www.logue.pro');
 
     } catch (error) {
-        console.error('❌ DNS configuration failed:', error.message);
+        console.error('[ERROR] DNS configuration failed:', error.message);
         process.exit(1);
     }
 }
@@ -277,8 +282,13 @@ async function configureDns() {
  * Show current DNS status
  */
 async function showDnsStatus() {
-    console.log('📋 Current DNS Records for logue.pro');
-    console.log('=====================================');
+    console.log(' _____ _   _ _   _    _    _   _  ____ _____ ____');
+    console.log('|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\');
+    console.log('  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |');
+    console.log('  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |');
+    console.log('  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/');
+    console.log('           CURRENT DNS RECORDS FOR LOGUE.PRO');
+    console.log('================================================');
 
     try {
         const records = await getCurrentDnsRecords();
@@ -328,8 +338,13 @@ if (require.main === module) {
             break;
         case 'help':
         default:
-            console.log('🎭 Prologue DNS Configuration Tool');
-            console.log('===================================');
+            console.log(' _____ _   _ _   _    _    _   _  ____ _____ ____');
+            console.log('|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\');
+            console.log('  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |');
+            console.log('  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |');
+            console.log('  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/');
+            console.log('              DNS CONFIGURATION TOOL');
+            console.log('================================================');
             console.log('');
             console.log('Usage:');
             console.log('  node scripts/porkbun-dns.js configure  - Configure DNS records');
