@@ -290,10 +290,10 @@ program
       switch (action) {
         case 'configure':
         case 'config':
-          console.log(chalk.blue('🔧 Configuring DNS for logue.pro...'));
+          console.log(chalk.blue('[INFO] Configuring DNS for logue.pro...'));
 
           if (!process.env.PORKBUN_API_KEY || !process.env.PORKBUN_SECRET_KEY) {
-            console.log(chalk.red('❌ Porkbun API credentials not found'));
+            console.log(chalk.red('[ERROR] Porkbun API credentials not found'));
             console.log(chalk.yellow('Set your credentials:'));
             console.log(chalk.gray('   export PORKBUN_API_KEY=your_api_key'));
             console.log(chalk.gray('   export PORKBUN_SECRET_KEY=your_secret_key'));
@@ -305,17 +305,98 @@ program
 
         case 'status':
         case 'show':
-          console.log(chalk.blue('📋 DNS Status for logue.pro...'));
+          console.log(chalk.blue('[INFO] DNS Status for logue.pro...'));
           execSync('node scripts/porkbun-dns.js status', { stdio: 'inherit' });
           break;
 
         default:
-          console.log(chalk.red('❌ Invalid action. Use: configure or status'));
+          console.log(chalk.red('[ERROR] Invalid action. Use: configure or status'));
           process.exit(1);
       }
 
     } catch (error) {
-      console.error(chalk.red('DNS operation failed:'), error);
+      console.error(chalk.red('[ERROR] DNS operation failed:'), error);
+      process.exit(1);
+    }
+  });
+
+// Secure deployment command
+program
+  .command('secure-deploy')
+  .description('Deploy with proprietary content protection')
+  .option('--skip-security', 'Skip security checks (not recommended)')
+  .action(async (options) => {
+    try {
+      console.log(chalk.blue('[INFO] Starting secure deployment...'));
+
+      const { execSync } = await import('child_process');
+
+      if (options.skipSecurity) {
+        console.log(chalk.yellow('[WARNING] Skipping security checks'));
+      }
+
+      // Run secure deployment script
+      execSync('./scripts/secure-deploy.sh', { stdio: 'inherit' });
+
+      console.log(chalk.green('[OK] Secure deployment completed!'));
+
+    } catch (error) {
+      console.error(chalk.red('[ERROR] Secure deployment failed:'), error);
+      process.exit(1);
+    }
+  });
+
+// Security configuration command
+program
+  .command('security')
+  .description('Manage security configuration')
+  .argument('<action>', 'Action to perform (check, init, status)')
+  .action(async (action) => {
+    try {
+      switch (action) {
+        case 'check':
+        case 'verify':
+          console.log(chalk.blue('[INFO] Running security checks...'));
+          const { aiManager } = await import('./ai/ai-manager');
+          const validation = await aiManager.validateConfiguration();
+
+          if (validation.valid) {
+            console.log(chalk.green('[OK] Security configuration is valid'));
+          } else {
+            console.log(chalk.yellow('[WARNING] Security issues found:'));
+            validation.issues.forEach(issue => console.log(chalk.red(`   - ${issue}`)));
+            console.log(chalk.cyan('\nRecommendations:'));
+            validation.recommendations.forEach(rec => console.log(chalk.gray(`   • ${rec}`)));
+          }
+          break;
+
+        case 'init':
+        case 'initialize':
+          console.log(chalk.blue('[INFO] Initializing security configuration...'));
+          const { secureConfig } = await import('./config/secure-config');
+          await secureConfig.initializeSecureConfig();
+          console.log(chalk.green('[OK] Security configuration initialized'));
+          break;
+
+        case 'status':
+          console.log(chalk.blue('[INFO] Security status...'));
+          const { aiManager: ai } = await import('./ai/ai-manager');
+          const status = ai.getConfigurationStatus();
+
+          console.log(chalk.cyan('Configuration Status:'));
+          console.log(`  Configured: ${status.configured ? chalk.green('Yes') : chalk.red('No')}`);
+          console.log(`  Agents Available: ${status.agentsAvailable}`);
+          console.log(`  Secure Config: ${status.hasSecureConfig ? chalk.green('Yes') : chalk.red('No')}`);
+          console.log(`  API Keys: ${status.hasApiKeys ? chalk.green('Yes') : chalk.red('No')}`);
+          break;
+
+        default:
+          console.log(chalk.red('[ERROR] Invalid action. Use: check, init, or status'));
+          process.exit(1);
+      }
+
+    } catch (error) {
+      console.error(chalk.red('[ERROR] Security operation failed:'), error);
       process.exit(1);
     }
   });

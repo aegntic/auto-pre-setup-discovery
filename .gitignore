@@ -118,5 +118,20 @@ api-keys.txt
 registrations.log
 .d3mo-key
 
+# Prologue security files
+.prologue-key
+config/secure.json
+config/secure.*.json
+
+# Proprietary content
+proprietary/
+.fpef-prompts
+.ai-prompts
+
+# Environment files (keep .env.template)
+.env.local
+.env.production
+.env.staging
+
 # Docker
 .dockerignore
