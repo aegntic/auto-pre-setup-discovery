@@ -241,6 +241,85 @@ program
     }
   });
 
+// Deploy command
+program
+  .command('deploy')
+  .description('Deploy Prologue to GitHub Pages and configure DNS')
+  .option('--dns', 'Configure DNS using Porkbun API')
+  .action(async (options) => {
+    try {
+      console.log(chalk.blue('🚀 Deploying Prologue...'));
+
+      const { execSync } = await import('child_process');
+
+      // Run the deployment script
+      execSync('./scripts/deploy-prologue.sh', { stdio: 'inherit' });
+
+      if (options.dns) {
+        console.log(chalk.blue('🔧 Configuring DNS...'));
+
+        // Check if Porkbun credentials are set
+        if (!process.env.PORKBUN_API_KEY || !process.env.PORKBUN_SECRET_KEY) {
+          console.log(chalk.yellow('⚠️  Set Porkbun credentials:'));
+          console.log(chalk.gray('   export PORKBUN_API_KEY=your_api_key'));
+          console.log(chalk.gray('   export PORKBUN_SECRET_KEY=your_secret_key'));
+          console.log(chalk.gray('   Then run: prologue dns configure'));
+        } else {
+          execSync('node scripts/porkbun-dns.js configure', { stdio: 'inherit' });
+        }
+      }
+
+      console.log(chalk.green('🎉 Deployment completed!'));
+      console.log(chalk.cyan('🌐 Your site is available at: https://logue.pro'));
+
+    } catch (error) {
+      console.error(chalk.red('Deployment failed:'), error);
+      process.exit(1);
+    }
+  });
+
+// DNS management command
+program
+  .command('dns')
+  .description('Manage DNS configuration for logue.pro')
+  .argument('<action>', 'Action to perform (configure, status)')
+  .action(async (action) => {
+    try {
+      const { execSync } = await import('child_process');
+
+      switch (action) {
+        case 'configure':
+        case 'config':
+          console.log(chalk.blue('🔧 Configuring DNS for logue.pro...'));
+
+          if (!process.env.PORKBUN_API_KEY || !process.env.PORKBUN_SECRET_KEY) {
+            console.log(chalk.red('❌ Porkbun API credentials not found'));
+            console.log(chalk.yellow('Set your credentials:'));
+            console.log(chalk.gray('   export PORKBUN_API_KEY=your_api_key'));
+            console.log(chalk.gray('   export PORKBUN_SECRET_KEY=your_secret_key'));
+            process.exit(1);
+          }
+
+          execSync('node scripts/porkbun-dns.js configure', { stdio: 'inherit' });
+          break;
+
+        case 'status':
+        case 'show':
+          console.log(chalk.blue('📋 DNS Status for logue.pro...'));
+          execSync('node scripts/porkbun-dns.js status', { stdio: 'inherit' });
+          break;
+
+        default:
+          console.log(chalk.red('❌ Invalid action. Use: configure or status'));
+          process.exit(1);
+      }
+
+    } catch (error) {
+      console.error(chalk.red('DNS operation failed:'), error);
+      process.exit(1);
+    }
+  });
+
 // Help command
 program
   .command('help')
