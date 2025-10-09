@@ -191,7 +191,7 @@ async function configureNameservers() {
         'opal.ns.porkbun.com'
     ];
 
-    console.log('🔧 Configuring nameservers...');
+    console.log('[INFO] Configuring nameservers...');
 
     try {
         const response = await makePorkbunRequest(`/domain/updateNameservers/${DOMAIN}`, 'POST', {
@@ -210,29 +210,33 @@ async function configureNameservers() {
  * Main configuration function
  */
 async function configureDns() {
-    console.log('////////////////////////////////////////////////////////////////////////////////');
-    console.log('//                                                                           //');
-    console.log('//                                  ___                               .------.       //');
-    console.log('//                                 (   )                             (________)      //');
-    console.log('//     .-..    ___ .-.      .--.    | |    .--.     .--.    ___  ___    .--.         //');
-    console.log('//    /    \\  (   )   \\    /    \\   | |   /    \\   /    \\  (   )(   )  /    \\        //');
-    console.log('//   \' .-,  ;  | \' .-. ;  |  .-. ;  | |  |  .-. ; ;  ,-. \'  | |  | |  |  .-. ;       //');
-    console.log('//   | |  . |  |  / (___) | |  | |  | |  | |  | | | |  | |  | |  | |  | |  | |       //');
-    console.log('//   | |  | |  | |        | |  | |  | |  | |  | | | |  | |  | |  | |  | |/  |       //');
-    console.log('//   | |  | |  | |        | |  | |  | |  | |  | | | |  | |  | |  | |  |  \' _.\'       //');
-    console.log('//   | |  \' |  | |        | \'  | |  | |  | \'  | | | \'  | |  | |  ; \'  |  \'.\'-.       //');
-    console.log('//   | `-/\'  \'  | |        \'  `-/\' /  | |  \'  `-/\' / \'  `-/\' |  \' `-/\' /  \'  `-/\' /       //');
-    console.log('//   | \\__.\'  (___)        `.__.\'  (___)  `.__.\'   `.__. |   \'__.\'    `.__.\'        //');
-    console.log('//   | |                  .------.                 ( `-\' ;                           //');
-    console.log('//  (___)                (________)                 `.__.                            //');
-    console.log('//                                                                           //');
-    console.log('////////////////////////////////////////////////////////////////////////////////');
-    console.log('                    DNS CONFIGURATION FOR LOGUE.PRO');
+    console.log('╔══════════════════════════════════════════════════════════════════════════════════╗');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║ ███████████                     █████                                            ║');
+    console.log('║░░███░░░░░███                   ░░███                                             ║');
+    console.log('║ ░███    ░███ ████████   ██████  ░███         ██████   ███████ █████ ████  ██████ ║');
+    console.log('║ ░██████████ ░░███░░███ ███░░███ ░███        ███░░███ ███░░███░░███ ░███  ███░░███║');
+    console.log('║ ░███░░░░░░   ░███ ░░░ ░███ ░███ ░███       ░███ ░███░███ ░███ ░███ ░███ ░███████ ║');
+    console.log('║ ░███         ░███     ░███ ░███ ░███      █░███ ░███░███ ░███ ░███ ░███ ░███░░░  ║');
+    console.log('║ █████        █████    ░░██████  ███████████░░██████ ░░███████ ░░████████░░██████ ║');
+    console.log('║░░░░░        ░░░░░      ░░░░░░  ░░░░░░░░░░░  ░░░░░░   ░░░░░███  ░░░░░░░░  ░░░░░░  ║');
+    console.log('║                                                      ███ ░███                    ║');
+    console.log('║  ᵖᵒʷᵉʳᵉᵈ ᵇʸ ᵃᵉᵍⁿᵗᶦᶜ ᵉᶜᵒˢʸˢᵗᵉᵐˢ                      ░░██████                     ║');
+    console.log('║       ʳᵘᵗʰˡᵉˢˢˡʸ ᵈᵉᵛᵉˡᵒᵖᵉᵈ ᵇʸ ae.ˡᵗᵈ                 ░░░░░░                      ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('╚══════════════════════════════════════════════════════════════════════════════════╝');
+    console.log('                       DNS CONFIGURATION FOR LOGUE.PRO');
     console.log('=================================================');
 
     // Check API credentials
     if (PORKBUN_API_KEY === 'your_porkbun_api_key' || PORKBUN_SECRET_KEY === 'your_porkbun_secret_key') {
-        console.error('❌ Please set your Porkbun API credentials:');
+        console.error('[ERROR] Please set your Porkbun API credentials:');
         console.error('   export PORKBUN_API_KEY=your_actual_api_key');
         console.error('   export PORKBUN_SECRET_KEY=your_actual_secret_key');
         process.exit(1);
@@ -244,13 +248,13 @@ async function configureDns() {
         console.log('');
 
         // Step 2: Get current records
-        console.log('📋 Getting current DNS records...');
+        console.log('[INFO] Getting current DNS records...');
         const currentRecords = await getCurrentDnsRecords();
         console.log(`Found ${currentRecords.length} existing records`);
         console.log('');
 
         // Step 3: Delete existing A, CNAME, MX, and TXT records
-        console.log('🗑️  Cleaning up existing records...');
+        console.log('[INFO] Cleaning up existing records...');
         const recordsToDelete = currentRecords.filter(record =>
             ['A', 'CNAME', 'MX', 'TXT'].includes(record.type)
         );
@@ -261,7 +265,7 @@ async function configureDns() {
         console.log('');
 
         // Step 4: Create new records
-        console.log('📝 Creating new DNS records...');
+        console.log('[INFO] Creating new DNS records...');
         for (const record of DNS_RECORDS) {
             await createDnsRecord(record);
         }
@@ -294,23 +298,27 @@ async function configureDns() {
  * Show current DNS status
  */
 async function showDnsStatus() {
-    console.log('////////////////////////////////////////////////////////////////////////////////');
-    console.log('//                                                                           //');
-    console.log('//                                  ___                               .------.       //');
-    console.log('//                                 (   )                             (________)      //');
-    console.log('//     .-..    ___ .-.      .--.    | |    .--.     .--.    ___  ___    .--.         //');
-    console.log('//    /    \\  (   )   \\    /    \\   | |   /    \\   /    \\  (   )(   )  /    \\        //');
-    console.log('//   \' .-,  ;  | \' .-. ;  |  .-. ;  | |  |  .-. ; ;  ,-. \'  | |  | |  |  .-. ;       //');
-    console.log('//   | |  . |  |  / (___) | |  | |  | |  | |  | | | |  | |  | |  | |  | |  | |       //');
-    console.log('//   | |  | |  | |        | |  | |  | |  | |  | | | |  | |  | |  | |  | |/  |       //');
-    console.log('//   | |  | |  | |        | |  | |  | |  | |  | | | |  | |  | |  | |  |  \' _.\'       //');
-    console.log('//   | |  \' |  | |        | \'  | |  | |  | \'  | | | \'  | |  | |  ; \'  |  \'.\'-.       //');
-    console.log('//   | `-/\'  \'  | |        \'  `-/\' /  | |  \'  `-/\' / \'  `-/\' |  \' `-/\' /  \'  `-/\' /       //');
-    console.log('//   | \\__.\'  (___)        `.__.\'  (___)  `.__.\'   `.__. |   \'__.\'    `.__.\'        //');
-    console.log('//   | |                  .------.                 ( `-\' ;                           //');
-    console.log('//  (___)                (________)                 `.__.                            //');
-    console.log('//                                                                           //');
-    console.log('////////////////////////////////////////////////////////////////////////////////');
+    console.log('╔══════════════════════════════════════════════════════════════════════════════════╗');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║ ███████████                     █████                                            ║');
+    console.log('║░░███░░░░░███                   ░░███                                             ║');
+    console.log('║ ░███    ░███ ████████   ██████  ░███         ██████   ███████ █████ ████  ██████ ║');
+    console.log('║ ░██████████ ░░███░░███ ███░░███ ░███        ███░░███ ███░░███░░███ ░███  ███░░███║');
+    console.log('║ ░███░░░░░░   ░███ ░░░ ░███ ░███ ░███       ░███ ░███░███ ░███ ░███ ░███ ░███████ ║');
+    console.log('║ ░███         ░███     ░███ ░███ ░███      █░███ ░███░███ ░███ ░███ ░███ ░███░░░  ║');
+    console.log('║ █████        █████    ░░██████  ███████████░░██████ ░░███████ ░░████████░░██████ ║');
+    console.log('║░░░░░        ░░░░░      ░░░░░░  ░░░░░░░░░░░  ░░░░░░   ░░░░░███  ░░░░░░░░  ░░░░░░  ║');
+    console.log('║                                                      ███ ░███                    ║');
+    console.log('║  ᵖᵒʷᵉʳᵉᵈ ᵇʸ ᵃᵉᵍⁿᵗᶦᶜ ᵉᶜᵒˢʸˢᵗᵉᵐˢ                      ░░██████                     ║');
+    console.log('║       ʳᵘᵗʰˡᵉˢˢˡʸ ᵈᵉᵛᵉˡᵒᵖᵉᵈ ᵇʸ ae.ˡᵗᵈ                 ░░░░░░                      ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('║                                                                                  ║');
+    console.log('╚══════════════════════════════════════════════════════════════════════════════════╝');
     console.log('                  CURRENT DNS RECORDS FOR LOGUE.PRO');
     console.log('================================================');
 
@@ -362,23 +370,27 @@ if (require.main === module) {
             break;
         case 'help':
         default:
-            console.log('////////////////////////////////////////////////////////////////////////////////');
-            console.log('//                                                                           //');
-            console.log('//                                  ___                               .------.       //');
-            console.log('//                                 (   )                             (________)      //');
-            console.log('//     .-..    ___ .-.      .--.    | |    .--.     .--.    ___  ___    .--.         //');
-            console.log('//    /    \\  (   )   \\    /    \\   | |   /    \\   /    \\  (   )(   )  /    \\        //');
-            console.log('//   \' .-,  ;  | \' .-. ;  |  .-. ;  | |  |  .-. ; ;  ,-. \'  | |  | |  |  .-. ;       //');
-            console.log('//   | |  . |  |  / (___) | |  | |  | |  | |  | | | |  | |  | |  | |  | |  | |       //');
-            console.log('//   | |  | |  | |        | |  | |  | |  | |  | | | |  | |  | |  | |  | |/  |       //');
-            console.log('//   | |  | |  | |        | |  | |  | |  | |  | | | |  | |  | |  | |  |  \' _.\'       //');
-            console.log('//   | |  \' |  | |        | \'  | |  | |  | \'  | | | \'  | |  | |  ; \'  |  \'.\'-.       //');
-            console.log('//   | `-/\'  \'  | |        \'  `-/\' /  | |  \'  `-/\' / \'  `-/\' |  \' `-/\' /  \'  `-/\' /       //');
-            console.log('//   | \\__.\'  (___)        `.__.\'  (___)  `.__.\'   `.__. |   \'__.\'    `.__.\'        //');
-            console.log('//   | |                  .------.                 ( `-\' ;                           //');
-            console.log('//  (___)                (________)                 `.__.                            //');
-            console.log('//                                                                           //');
-            console.log('////////////////////////////////////////////////////////////////////////////////');
+            console.log('╔══════════════════════════════════════════════════════════════════════════════════╗');
+            console.log('║                                                                                  ║');
+            console.log('║                                                                                  ║');
+            console.log('║                                                                                  ║');
+            console.log('║                                                                                  ║');
+            console.log('║ ███████████                     █████                                            ║');
+            console.log('║░░███░░░░░███                   ░░███                                             ║');
+            console.log('║ ░███    ░███ ████████   ██████  ░███         ██████   ███████ █████ ████  ██████ ║');
+            console.log('║ ░██████████ ░░███░░███ ███░░███ ░███        ███░░███ ███░░███░░███ ░███  ███░░███║');
+            console.log('║ ░███░░░░░░   ░███ ░░░ ░███ ░███ ░███       ░███ ░███░███ ░███ ░███ ░███ ░███████ ║');
+            console.log('║ ░███         ░███     ░███ ░███ ░███      █░███ ░███░███ ░███ ░███ ░███ ░███░░░  ║');
+            console.log('║ █████        █████    ░░██████  ███████████░░██████ ░░███████ ░░████████░░██████ ║');
+            console.log('║░░░░░        ░░░░░      ░░░░░░  ░░░░░░░░░░░  ░░░░░░   ░░░░░███  ░░░░░░░░  ░░░░░░  ║');
+            console.log('║                                                      ███ ░███                    ║');
+            console.log('║  ᵖᵒʷᵉʳᵉᵈ ᵇʸ ᵃᵉᵍⁿᵗᶦᶜ ᵉᶜᵒˢʸˢᵗᵉᵐˢ                      ░░██████                     ║');
+            console.log('║       ʳᵘᵗʰˡᵉˢˢˡʸ ᵈᵉᵛᵉˡᵒᵖᵉᵈ ᵇʸ ae.ˡᵗᵈ                 ░░░░░░                      ║');
+            console.log('║                                                                                  ║');
+            console.log('║                                                                                  ║');
+            console.log('║                                                                                  ║');
+            console.log('║                                                                                  ║');
+            console.log('╚══════════════════════════════════════════════════════════════════════════════════╝');
             console.log('                      DNS CONFIGURATION TOOL');
             console.log('================================================');
             console.log('');
