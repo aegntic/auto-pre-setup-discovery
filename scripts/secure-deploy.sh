@@ -229,9 +229,9 @@ deploy_github_pages() {
 - Enhanced proprietary content protection
 - Added secure deployment workflow
 
-[SECURE] Generated with Claude Code
+[SECURE] Generated with GLM
 
-Co-Authored-By: Claude <noreply@anthropic.com>" || true
+Co-Authored-By: GLM Assistant <noreply@generic.ai>' || true
 
     # Push to GitHub
     git push origin main

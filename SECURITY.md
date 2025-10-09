@@ -65,7 +65,7 @@ cp .env.template .env
 ## Environment Variables
 
 ### Required Variables
-- `ANTHROPIC_API_KEY`: Claude API key (required for AI functionality)
+- `ANTHROPIC_API_KEY`: Anthropic API key (required for AI functionality)
 - `RESEND_API_KEY`: Email service API key
 - `FPEF_SYSTEM_PROMPT`: Proprietary FPEF system prompt
 

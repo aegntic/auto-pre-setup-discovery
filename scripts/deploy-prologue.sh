@@ -78,9 +78,9 @@ if [ -n "$(git status --porcelain)" ]; then
 - Sync latest changes to GitHub
 - Update deployment configuration
 
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
+🤖 Generated with GLM Assistant
 
-Co-Authored-By: Claude <noreply@anthropic.com>"
+Co-Authored-By: GLM Assistant <noreply@generic.ai>'
 
     print_success "Changes committed successfully"
 else
