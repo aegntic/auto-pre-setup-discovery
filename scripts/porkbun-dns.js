@@ -210,11 +210,11 @@ async function configureNameservers() {
  * Main configuration function
  */
 async function configureDns() {
-    console.log(' _____ _   _ _   _    _    _   _  ____ _____ ____');
-    console.log('|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\');
-    console.log('  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |');
-    console.log('  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |');
-    console.log('  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/');
+    console.log('  ____  _   _ ____ _____ _____ _   _');
+    console.log(' |  _ \\| | | |  _ \\_   _| ____| \\ | |');
+    console.log(' | |_) | | | | |_) || | |  _| |  \\| |');
+    console.log(' |  __/| |_| |  _ < | | | |___| |\\  |');
+    console.log(' |_|    \\___/|_| \\_\\|_| |_____|_| \\_|');
     console.log('           DNS CONFIGURATION FOR LOGUE.PRO');
     console.log('=================================================');
 
@@ -282,11 +282,11 @@ async function configureDns() {
  * Show current DNS status
  */
 async function showDnsStatus() {
-    console.log(' _____ _   _ _   _    _    _   _  ____ _____ ____');
-    console.log('|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\');
-    console.log('  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |');
-    console.log('  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |');
-    console.log('  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/');
+    console.log('  ____  _   _ ____ _____ _____ _   _');
+    console.log(' |  _ \\| | | |  _ \\_   _| ____| \\ | |');
+    console.log(' | |_) | | | | |_) || | |  _| |  \\| |');
+    console.log(' |  __/| |_| |  _ < | | | |___| |\\  |');
+    console.log(' |_|    \\___/|_| \\_\\|_| |_____|_| \\_|');
     console.log('           CURRENT DNS RECORDS FOR LOGUE.PRO');
     console.log('================================================');
 
@@ -338,11 +338,11 @@ if (require.main === module) {
             break;
         case 'help':
         default:
-            console.log(' _____ _   _ _   _    _    _   _  ____ _____ ____');
-            console.log('|_   _| | | | \\ | |  / \\  | \\ | |/ ___| ____|  _ \\');
-            console.log('  | | | | | |  \\| | / _ \\ |  \\| | |   |  _| | | | |');
-            console.log('  | | | |_| | |\\  |/ ___ \\| |\\  | |___| |___| |_| |');
-            console.log('  |_|  \\___/|_| \\_/_/   \\_\\_| \\_|\\____|_____|____/');
+            console.log('  ____  _   _ ____ _____ _____ _   _');
+            console.log(' |  _ \\| | | |  _ \\_   _| ____| \\ | |');
+            console.log(' | |_) | | | | |_) || | |  _| |  \\| |');
+            console.log(' |  __/| |_| |  _ < | | | |___| |\\  |');
+            console.log(' |_|    \\___/|_| \\_\\|_| |_____|_| \\_|');
             console.log('              DNS CONFIGURATION TOOL');
             console.log('================================================');
             console.log('');
