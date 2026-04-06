@@ -1,19 +1,19 @@
-# 🎭 Prologue
+# 🎭 auto-pre-setup-discovery (APSD)
 
 > **Begin Your Story** - The AI-Powered Creative Framework for Building Tomorrow's Digital Experiences
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Website: logue.pro](https://img.shields.io/badge/Website-logue.pro-blue.svg)](https://logue.pro)
-[![Discord: Community](https://img.shields.io/badge/Discord-Community-purple.svg)](https://discord.gg/prologue)
-[![Twitter: X](https://img.shields.io/badge/Twitter-@prologueai-black.svg)](https://twitter.com/prologueai)
+[![Discord: Community](https://img.shields.io/badge/Discord-Community-purple.svg)](https://discord.gg/APSD)
+[![Twitter: X](https://img.shields.io/badge/Twitter-@APSDai-black.svg)](https://twitter.com/APSDai)
 
 ---
 
 ## 🎯 **Transform Your Creative Vision into Reality**
 
-Prologue is the **world's first AI-powered creative framework** that helps you build, design, and deploy stunning digital experiences. Whether you're creating websites, applications, games, or interactive art, Prologue provides the intelligent tools and AI agents to bring your vision to life.
+APSD is the **world's first AI-powered creative framework** that helps you build, design, and deploy stunning digital experiences. Whether you're creating websites, applications, games, or interactive art, APSD provides the intelligent tools and AI agents to bring your vision to life.
 
-### 🚀 **Why Prologue?**
+### 🚀 **Why APSD?**
 
 - **🤖 AI-Powered Creativity**: Advanced AI agents that understand your creative intent
 - **🎨 Multi-Disciplinary**: From web development to game design, interactive art to data visualization
@@ -24,7 +24,7 @@ Prologue is the **world's first AI-powered creative framework** that helps you b
 
 ---
 
-## 🌟 **What Can You Build with Prologue?**
+## 🌟 **What Can You Build with APSD?**
 
 ### 🌐 **Web Applications**
 - Modern web apps with React, Vue, or Svelte
@@ -52,9 +52,9 @@ Prologue is the **world's first AI-powered creative framework** that helps you b
 
 ---
 
-## 🤖 **Meet the Prologue AI Team**
+## 🤖 **Meet the APSD AI Team**
 
-Prologue comes with **6 specialized AI agents** that work together to bring your creative vision to life:
+APSD comes with **6 specialized AI agents** that work together to bring your creative vision to life:
 
 ### 🎭 **The Visionary Director**
 - Understands your creative intent and project goals
@@ -98,7 +98,7 @@ Prologue comes with **6 specialized AI agents** that work together to bring your
 
 ### 🌟 **Join 147+ Creators on the Waitlist**
 
-Prologue is currently in closed beta, but you can secure your early access spot today! Be the first to experience the future of creative development.
+APSD is currently in closed beta, but you can secure your early access spot today! Be the first to experience the future of creative development.
 
 **[🚀 Click Here to Get Early Access](https://logue.pro/register)**
 
@@ -107,18 +107,18 @@ Prologue is currently in closed beta, but you can secure your early access spot 
 ## 📧 **Why Join Early Access?**
 
 ### ✨ **Exclusive Benefits**
-- **🎯 Priority Access**: Be among the first to use Prologue
+- **🎯 Priority Access**: Be among the first to use APSD
 - **💰 Early-Bird Pricing**: Lock in special pricing before launch
 - **🎁 Bonus Features**: Get access to premium templates and AI agents
 - **👥 Private Community**: Join our exclusive Discord for early adopters
-- **🔧 Direct Input**: Shape the future of Prologue with your feedback
+- **🔧 Direct Input**: Shape the future of APSD with your feedback
 
 ### 🎯 **What You'll Get**
-- **Full Access**: Complete Prologue framework with all AI agents
+- **Full Access**: Complete APSD framework with all AI agents
 - **1-on-1 Onboarding**: Personalized setup and guidance
 - **Template Library**: 50+ premium templates for every use case
 - **Priority Support**: Direct line to our development team
-- **Future Updates**: Lifetime access to all Prologue updates
+- **Future Updates**: Lifetime access to all APSD updates
 
 ---
 
@@ -129,13 +129,13 @@ Once you receive your early access invitation, installation is simple:
 ### 🎯 **Option 1: One-Click Installation (Recommended)**
 
 ```bash
-# Install Prologue with our intelligent installer
-npm install -g @prologue/cli
+# Install APSD with our intelligent installer
+npm install -g @APSD/cli
 
 # Start your first project
-prologue create my-awesome-project
+APSD create my-awesome-project
 cd my-awesome-project
-prologue dev
+APSD dev
 ```
 
 ### 🌐 **Option 2: Browser-Based Creator**
@@ -148,11 +148,11 @@ prologue dev
 ### 🐳 **Option 3: Docker Container**
 
 ```bash
-# Pull the latest Prologue image
-docker pull ghcr.io/aegntic/prologue:latest
+# Pull the latest APSD image
+docker pull ghcr.io/aegntic/APSD:latest
 
-# Start the Prologue creator
-docker run -it -p 3000:3000 ghcr.io/aegntic/prologue:latest
+# Start the APSD creator
+docker run -it -p 3000:3000 ghcr.io/aegntic/APSD:latest
 ```
 
 ---
@@ -161,29 +161,29 @@ docker run -it -p 3000:3000 ghcr.io/aegntic/prologue:latest
 
 ### 🌟 **Interactive Portfolio Website**
 ```bash
-prologue create portfolio --template=modern --ai=enhanced
-prologue dev
+APSD create portfolio --template=modern --ai=enhanced
+APSD dev
 # Open http://localhost:3000 to see your portfolio come to life!
 ```
 
 ### 🎮 **Web-Based Game**
 ```bash
-prologue create game --template=arcade --ai=physics
-prologue dev
+APSD create game --template=arcade --ai=physics
+APSD dev
 # Build a game with AI-generated levels and mechanics!
 ```
 
 ### 🎨 **Generative Art Gallery**
 ```bash
-prologue create art-gallery --template=creative --ai=generative
-prologue dev
+APSD create art-gallery --template=creative --ai=generative
+APSD dev
 # Create dynamic art that responds to user interaction!
 ```
 
 ### 📱 **Mobile App Prototype**
 ```bash
-prologue create mobile-app --template=native --ai=adaptive
-prologue dev
+APSD create mobile-app --template=native --ai=adaptive
+APSD dev
 # Build a mobile app that adapts to any device!
 ```
 
@@ -219,7 +219,7 @@ prologue dev
 
 ## 🏗️ **Architecture Overview**
 
-Prologue is built on **cutting-edge technology**:
+APSD is built on **cutting-edge technology**:
 
 - **Frontend**: React 19, TypeScript, Tailwind CSS, and Three.js
 - **Backend**: Node.js, Express, and PostgreSQL
@@ -231,9 +231,9 @@ Prologue is built on **cutting-edge technology**:
 
 ```typescript
 // Modern React with TypeScript
-import { PrologueApp, AIAgent } from '@prologue/core';
+import { APSDApp, AIAgent } from '@APSD/core';
 
-const app = new PrologueApp({
+const app = new APSDApp({
   ai: {
     models: ['gpt-4', 'claude-3.5', 'gemini-pro'],
     agents: ['visionary', 'builder', 'designer', 'data', 'security', 'deployment']
@@ -259,31 +259,31 @@ app.create({
 
 ### 🌐 **Vercel (Recommended)**
 ```bash
-prologue deploy vercel
+APSD deploy vercel
 # Deploy to Vercel with one command
 ```
 
 ### ☁️ **Netlify**
 ```bash
-prologue deploy netlify
+APSD deploy netlify
 # Deploy to Netlify with continuous deployment
 ```
 
 ### 🐳 **Docker**
 ```bash
-prologue deploy docker
+APSD deploy docker
 # Deploy as a Docker container to any platform
 ```
 
 ### ☁️ **AWS/Google Cloud/Azure**
 ```bash
-prologue deploy cloud --provider=aws
+APSD deploy cloud --provider=aws
 # Deploy to any major cloud provider
 ```
 
 ### 🏠 **Self-Hosted**
 ```bash
-prologue deploy self-hosted
+APSD deploy self-hosted
 # Deploy on your own server or infrastructure
 ```
 
@@ -292,10 +292,10 @@ prologue deploy self-hosted
 ## 🎯 **Community & Support**
 
 ### 🌟 **Join Our Growing Community**
-- **Discord**: [discord.gg/prologue](https://discord.gg/prologue)
-- **Twitter**: [@prologueai](https://twitter.com/prologueai)
-- **GitHub**: [github.com/aegntic/prologue](https://github.com/aegntic/prologue)
-- **YouTube**: Prologue AI Channel
+- **Discord**: [discord.gg/APSD](https://discord.gg/APSD)
+- **Twitter**: [@APSDai](https://twitter.com/APSDai)
+- **GitHub**: [github.com/aegntic/APSD](https://github.com/aegntic/APSD)
+- **YouTube**: APSD AI Channel
 
 ### 📚 **Learning Resources**
 - **Interactive Tutorials**: Step-by-step guides for every feature
@@ -310,7 +310,7 @@ We welcome contributions from everyone! Whether you're a beginner or an expert, 
 - **Templates**: Create templates for others to use
 - **Documentation**: Help improve our guides and examples
 - **Community**: Help others in Discord and forums
-- **Testing**: Help us test and improve Prologue
+- **Testing**: Help us test and improve APSD
 
 ---
 
@@ -321,7 +321,7 @@ We welcome contributions from everyone! Whether you're a beginner or an expert, 
 - **🎨 Visual Editor**: Drag-and-drop interface for non-developers
 - **📱 Mobile Builder**: Native mobile app development tools
 - **🌐 Enterprise Features**: Team collaboration and enterprise management
-- **🔌 Plugin System**: Extend Prologue with custom plugins
+- **🔌 Plugin System**: Extend APSD with custom plugins
 - **🌟 Marketplace**: Community templates and components
 
 ### 📊 **Current Status**
@@ -337,7 +337,7 @@ We welcome contributions from everyone! Whether you're a beginner or an expert, 
 
 ## 🎭 **Start Your Story Today**
 
-Prologue is more than just a framework—it's a **creative partner** that helps you bring your ideas to life. Whether you're building your first project or your fiftieth, Prologue provides the tools, guidance, and inspiration to make something amazing.
+APSD is more than just a framework—it's a **creative partner** that helps you bring your ideas to life. Whether you're building your first project or your fiftieth, APSD provides the tools, guidance, and inspiration to make something amazing.
 
 ### 🌟 **Perfect For**
 - **🎨 Creative Professionals**: Designers, artists, and creative directors
@@ -350,10 +350,10 @@ Prologue is more than just a framework—it's a **creative partner** that helps 
 ### 🎯 **Why Wait? Your Story Begins Now**
 
 ```bash
-# Install Prologue and start creating
-npm install -g @prologue/cli
-prologue create my-story
-prologue dev
+# Install APSD and start creating
+npm install -g @APSD/cli
+APSD create my-story
+APSD dev
 
 # Or visit [logue.pro](https://logue.pro) to start in your browser
 ```
@@ -362,7 +362,7 @@ prologue dev
 
 ## 📄 **License**
 
-Prologue is open source and available under the [MIT License](LICENSE).
+APSD is open source and available under the [MIT License](LICENSE).
 
 ---
 
@@ -378,9 +378,9 @@ Prologue is open source and available under the [MIT License](LICENSE).
 
 ## 🎭 **Your Story Awaits**
 
-The blank page is intimidating, but with Prologue, it becomes a canvas of infinite possibilities. Your ideas deserve to be seen, your creativity deserves to be shared, and your story deserves to be told.
+The blank page is intimidating, but with APSD, it becomes a canvas of infinite possibilities. Your ideas deserve to be seen, your creativity deserves to be shared, and your story deserves to be told.
 
-**Start your prologue today.** 🚀✨
+**Start your APSD today.** 🚀✨
 
 ---
 
@@ -388,6 +388,6 @@ The blank page is intimidating, but with Prologue, it becomes a canvas of infini
 
 Be the first to know about new features, templates, and updates:
 
-[![](https://img.shields.io/badge/Get_Early_Access-000000?style=for-the-badge&logo=prologue)](https://logue.pro/#early-access)
+[![](https://img.shields.io/badge/Get_Early_Access-000000?style=for-the-badge&logo=APSD)](https://logue.pro/#early-access)
 
 **Visit [logue.pro](https://logue.pro) to begin your creative journey.** 🎯
