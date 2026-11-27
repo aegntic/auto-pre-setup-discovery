@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/cover-16x9.jpg" alt="auto-pre-setup-discovery — APSD - The AI-Powered Creative Framework for Building Tomorrow's Digital Experiences" width="100%" />
+</p>
+
 # 🎭 auto-pre-setup-discovery (APSD)
 
 > **Begin Your Story** - The AI-Powered Creative Framework for Building Tomorrow's Digital Experiences
